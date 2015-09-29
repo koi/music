@@ -121,7 +121,7 @@ global = {
     % For things that apply to every staff such as defaults, rehearsal marks,
     % barlines.
     \defaults
-	%1
+    % A
     \mark \default
         s1*1 \bar "|."
 	}
@@ -132,7 +132,7 @@ global = {
 
 chordChanges = \chords {
     \chordDefaults
-    %1
+    % A
     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -154,7 +154,7 @@ partAMusic = \relative c' {
     \set Staff.instrumentName = \partAName
     \set Staff.shortInstrumentName = ""
     \clef treble
-    %1
+    % A
         r1
     }
 
