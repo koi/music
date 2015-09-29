@@ -149,10 +149,17 @@ chordChanges = \chords {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                         Musical Fragments                           %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Make all fragments \relative to c' for treble instruments, \relative c for
-% bass instruments. This prevents transposition octave problems later. After
-% the global mapping, it's best to write out all %repeated musical fragments
-% here in an organzied and incremental way.
+% It's best to write out all repeated musical fragments here in an organzied
+% and incremental way. Make all fragments \relative to c' for treble
+% instruments, and \relative to c for bass instruments. This prevents
+% transposition octave problems later.
+
+aaaaa = \relative c' {
+    c1
+    c
+    c
+    c
+    }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                               Part A                                %%%%%
@@ -166,6 +173,6 @@ partAMusic = \relative c' {
     \set Staff.shortInstrumentName = ""
     \clef treble
     % A
-        r1
+        \aaaaa
     }
 
