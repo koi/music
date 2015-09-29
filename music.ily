@@ -144,6 +144,12 @@ global = {
 chordChanges = \chords {
     \chordDefaults
     % A
+    \tag #'sectionA {
+        c1:
+        c1:
+        c1:
+        c1:
+        }
     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -176,3 +182,6 @@ partAMusic = \relative c' {
         \aaaaa
     }
 
+partAChords = {
+    \keepWithTag #'sectionA \chordChanges
+    }
