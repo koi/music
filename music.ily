@@ -116,14 +116,25 @@ textSpanModOne = {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                               Global                                %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% It is recomended that the main sections in a piece (the segments between
+% rehearsal marks) be grouped into section variables. They contain spacers and
+% nothing else.  They get grouped together in the `\global` variable, but also
+% can be used when constructing the chord changes for individual parts; which
+% are made up of sections of space and careful filtering of \globalChords. This
+% lets you set once, and use twice.
+
+sectionASpace = {
+    s1*4
+    }
 
 global = { 
     % For things that apply to every staff such as defaults, rehearsal marks,
-    % barlines.
+    % barlines. Combine the section spacer variables from above in this
+    % section.
     \defaults
     % A
     \mark \default
-        s1*1 \bar "|."
+        \sectionASpace \bar "|."
 	}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
