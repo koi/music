@@ -402,7 +402,7 @@ scoreStaves = {
             \partO
             \partP
             >>
-        % \globalChords
+        \globalChords
         \partQ
         \partR
         \partS
