@@ -18,48 +18,6 @@
 %%%%%                                Music                                %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\header {
-    dedication = ""
-    title = ""
-    subtitle = ""
-    subsubtitle = ""
-    instrument = ""
-    poet = ""
-    composer = ""
-    catalog = ""
-    year = ""
-    meter = ""
-    opus = ""
-    arranger = ""
-    piece = ""
-    head = ""
-    owner = ""
-    enteredby = ""
-    maintainer = ""
-    maintainerEmail = ""
-    copyright = \markup {
-        Copyright © \year by \owner
-        }
-    footer = ""
-	tagline = \markup { 
-		\override #'(box-padding . 0.5)
-		\override #'(baseline-skip . 1.0) 
-		\box \center-column {
-			\small \line { 
-				Typeset using \with-url #"http://www.LilyPond.org"
-				\line {
-					\teeny " www." LilyPond \teeny ".org" \hspace #0.5
-					}
-				• \hspace #0.5 Compiled: \timeStamp
-				• \hspace #0.5 Reference: \catalog 
-				} 
-			\small \line {
-				Copyright © \year by \owner \hspace #0.5 • \hspace #0.5 Used by permission. All rights reserved.
-				}
-			}
-		}
-	}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                              Variables                              %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
