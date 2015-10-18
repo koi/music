@@ -18,16 +18,13 @@
 %%%%%                                Music                                %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\include "fragments.ily"
+\include "global.ily"
+\include "chords.ily"
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%                              Variables                              %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-defaults = {
-    % Set global key, tempo, time
-    \key c \major
-    \tempo 4=76
-    \time 4/4
-    }
 
 codaSpace = {
     \cadenzaOn 
@@ -67,61 +64,6 @@ textSpanModOne = {
     \once \override TextSpanner #'(bound-details right text) = \markup {
         \hspace #1 \draw-line #'(0 . -2)
         }
-    }
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%                               Global                                %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% It is recomended that the main sections in a piece (the segments between
-% rehearsal marks) be grouped into section variables. They contain spacers and
-% nothing else.  They get grouped together in the `\global` variable, but also
-% can be used when constructing the chord changes for individual parts; which
-% are made up of sections of space and careful filtering of \globalChords. This
-% lets you set once, and use twice.
-
-sectionASpace = {
-    s1*4
-    }
-
-global = { 
-    % For things that apply to every staff such as defaults, rehearsal marks,
-    % barlines. Combine the section spacer variables from above in this
-    % section.
-    \defaults
-    % A
-    \mark \default
-        \sectionASpace \bar "|."
-	}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%                            Chord Changes                            %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-globalChords = \chords {
-    \chordDefaults
-    % A
-    \tag #'sectionA {
-        c1:
-        c1:
-        c1:
-        c1:
-        }
-    }
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%                          Musical Fragments                          %%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% It's best to write out all repeated musical fragments here in an organzied
-% and incremental way. Make all fragments \relative to c' for treble
-% instruments, and \relative to c for bass instruments. This prevents
-% transposition octave problems later.
-
-aaaaa = \relative c' {
-    c1
-    c
-    c
-    c
     }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
