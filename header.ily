@@ -34,7 +34,7 @@
     opus = \opus
 
     composer = \composer
-    arranger = \arranger
+    arranger = \markup { "arr. " \arranger }
     poet = \poet
     piece = \piece
     meter = \meter
