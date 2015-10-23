@@ -28,3 +28,11 @@ globalTranspose =
         #{ 
             \transpose c c { #music }
         #})
+
+scoreStyle =
+    #(define-music-function
+        (parser location music)
+        (ly:music?)
+        #{ 
+            \removeWithTag #'transposed { #music }
+        #})

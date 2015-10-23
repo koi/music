@@ -28,343 +28,529 @@
 \include "music.ily"
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%                             Part Layouts                            %%%%%
+%%%%%                            Staff Layouts                            %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+partAStaff = {
+    <<
+    \tag #'partChords { \partAChords }
+    \new Staff { 
+        << \global \partAMusic >>
+        }
+    >>
+    }
+
+partBStaff = {
+    <<
+    \tag #'partChords { \partBChords }
+    \new Staff { 
+        << \global \partBMusic >>
+        }
+    >>
+    }
+
+partCStaff = {
+    <<
+    \tag #'partChords { \partCChords }
+    \new Staff { 
+        << \global \partCMusic >>
+        }
+    >>
+    }
+
+partDStaff = {
+    <<
+    \tag #'partChords { \partDChords }
+    \new Staff { 
+        << \global \partDMusic >>
+        }
+    >>
+    }
+
+partEStaff = {
+    <<
+    \tag #'partChords { \partEChords }
+    \new Staff { 
+        << \global \partEMusic >>
+        }
+    >>
+    }
+
+partFStaff = {
+    <<
+    \tag #'partChords { \partFChords }
+    \new Staff { 
+        << \global \partFMusic >>
+        }
+    >>
+    }
+
+partGStaff = {
+    <<
+    \tag #'partChords { \partGChords }
+    \new Staff { 
+        << \global \partGMusic >>
+        }
+    >>
+    }
+
+partHStaff = {
+    <<
+    \tag #'partChords { \partHChords }
+    \new Staff { 
+        << \global \partHMusic >>
+        }
+    >>
+    }
+
+partIStaff = {
+    <<
+    \tag #'partChords { \partIChords }
+    \new Staff { 
+        << \global \partIMusic >>
+        }
+    >>
+    }
+
+partJStaff = {
+    <<
+    \tag #'partChords { \partJChords }
+    \new Staff { 
+        << \global \partJMusic >>
+        }
+    >>
+    }
+
+partKStaff = {
+    <<
+    \tag #'partChords { \partKChords }
+    \new Staff { 
+        << \global \partKMusic >>
+        }
+    >>
+    }
+
+partLStaff = {
+    <<
+    \tag #'partChords { \partLChords }
+    \new Staff { 
+        << \global \partLMusic >>
+        }
+    >>
+    }
+
+partMStaff = {
+    <<
+    \tag #'partChords { \partMChords }
+    \new Staff { 
+        << \global \partMMusic >>
+        }
+    >>
+    }
+
+partNStaff = {
+    <<
+    \tag #'partChords { \partNChords }
+    \new Staff { 
+        << \global \partNMusic >>
+        }
+    >>
+    }
+
+partOStaff = {
+    <<
+    \tag #'partChords { \partOChords }
+    \new Staff { 
+        << \global \partOMusic >>
+        }
+    >>
+    }
+
+partPStaff = {
+    <<
+    \tag #'partChords { \partPChords }
+    \new Staff { 
+        << \global \partPMusic >>
+        }
+    >>
+    }
+
+partQStaff = {
+    <<
+    \tag #'partChords { \partQChords }
+    \new Staff { 
+        << \global \partQMusic >>
+        }
+    >>
+    }
+
+partRStaff = {
+    <<
+    \tag #'partChords { \partRChords }
+    \new Staff { 
+        << \global \partRMusic >>
+        }
+    >>
+    }
+
+partSStaff = {
+    <<
+    \tag #'partChords { \partSChords }
+    \new Staff { 
+        << \global \partSMusic >>
+        }
+    >>
+    }
+
+partTStaff = {
+    <<
+    \tag #'partChords { \partTChords }
+    \new Staff { 
+        << \global \partTMusic >>
+        }
+    >>
+    }
+
+partUStaff = {
+    <<
+    \tag #'partChords { \partUChords }
+    \new Staff { 
+        << \global \partUMusic >>
+        }
+    >>
+    }
+
+partVStaff = {
+    <<
+    \tag #'partChords { \partVChords }
+    \new Staff { 
+        << \global \partVMusic >>
+        }
+    >>
+    }
+
+partWStaff = {
+    <<
+    \tag #'partChords { \partWChords }
+    \new Staff { 
+        << \global \partWMusic >>
+        }
+    >>
+    }
+
+partXStaff = {
+    <<
+    \tag #'partChords { \partXChords }
+    \new Staff { 
+        << \global \partXMusic >>
+        }
+    >>
+    }
+
+partYStaff = {
+    <<
+    \tag #'partChords { \partYChords }
+    \new Staff { 
+        << \global \partYMusic >>
+        }
+    >>
+    }
+
+partZStaff = {
+    <<
+    \tag #'partChords { \partZChords }
+    \new Staff { 
+        << \global \partZMusic >>
+        }
+    >>
+    }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                Parts                                %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 partA = {
-    \transpose c c {
+    \tag #'concert {
+        \partAStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partAChords
-            \new Staff { 
-                << \global \partAMusic >>
-                }
-            >>
+            \partAStaff
             }
         }
     }
 
 partB = {
-    \transpose c c {
+    \tag #'concert {
+        \partBStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partBChords 
-            \new Staff { 
-                << \global \partBMusic >>
-                }
-            >>
+            \partBStaff
             }
         }
     }
 
 partC = {
-    \transpose c c {
+    \tag #'concert {
+        \partCStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partCChords 
-            \new Staff { 
-                << \global \partCMusic >>
-                }
-            >>
+            \partCStaff
             }
         }
     }
 
 partD = {
-    \transpose c c {
+    \tag #'concert {
+        \partDStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partDChords 
-            \new Staff { 
-                << \global \partDMusic >>
-                }
-            >>
+            \partDStaff
             }
         }
     }
 
 partE = {
-    \transpose c c {
+    \tag #'concert {
+        \partEStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partEChords 
-            \new Staff { 
-                << \global \partEMusic >>
-                }
-            >>
+            \partEStaff
             }
         }
     }
 
 partF = {
-    \transpose c c {
+    \tag #'concert {
+        \partFStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partFChords 
-            \new Staff { 
-                << \global \partFMusic >>
-                }
-            >>
+            \partFStaff
             }
         }
     }
 
 partG = {
-    \transpose c c {
+    \tag #'concert {
+        \partGStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partGChords 
-            \new Staff { 
-                << \global \partGMusic >>
-                }
-            >>
+            \partGStaff
             }
         }
     }
 
 partH = {
-    \transpose c c {
+    \tag #'concert {
+        \partHStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partHChords 
-            \new Staff { 
-                << \global \partHMusic >>
-                }
-            >>
+            \partHStaff
             }
         }
     }
 
 partI = {
-    \transpose c c {
+    \tag #'concert {
+        \partIStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partIChords 
-            \new Staff { 
-                << \global \partIMusic >>
-                }
-            >>
+            \partIStaff
             }
         }
     }
 
 partJ = {
-    \transpose c c {
+    \tag #'concert {
+        \partJStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partJChords 
-            \new Staff { 
-                << \global \partJMusic >>
-                }
-            >>
+            \partJStaff
             }
         }
     }
 
 partK = {
-    \transpose c c {
+    \tag #'concert {
+        \partKStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partKChords 
-            \new Staff { 
-                << \global \partKMusic >>
-                }
-            >>
+            \partKStaff
             }
         }
     }
 
 partL = {
-    \transpose c c {
+    \tag #'concert {
+        \partLStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partLChords 
-            \new Staff { 
-                << \global \partLMusic >>
-                }
-            >>
+            \partLStaff
             }
         }
     }
 
 partM = {
-    \transpose c c {
+    \tag #'concert {
+        \partMStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partMChords 
-            \new Staff { 
-                << \global \partMMusic >>
-                }
-            >>
+            \partMStaff
             }
         }
     }
 
 partN = {
-    \transpose c c {
+    \tag #'concert {
+        \partNStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partNChords 
-            \new Staff { 
-                << \global \partNMusic >>
-                }
-            >>
+            \partNStaff
             }
         }
     }
 
 partO = {
-    \transpose c c {
+    \tag #'concert {
+        \partOStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partOChords 
-            \new Staff { 
-                << \global \partOMusic >>
-                }
-            >>
+            \partOStaff
             }
         }
     }
 
 partP = {
-    \transpose c c {
+    \tag #'concert {
+        \partPStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partPChords 
-            \new Staff { 
-                << \global \partPMusic >>
-                }
-            >>
+            \partPStaff
             }
         }
     }
 
 partQ = {
-    \transpose c c {
+    \tag #'concert {
+        \partQStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partQChords 
-            \new Staff { 
-                << \global \partQMusic >>
-                }
-            >>
+            \partQStaff
             }
         }
     }
 
 partR = {
-    \transpose c c {
+    \tag #'concert {
+        \partRStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partRChords 
-            \new Staff { 
-                << \global \partRMusic >>
-                }
-            >>
+            \partRStaff
             }
         }
     }
 
 partS = {
-    \transpose c c {
+    \tag #'concert {
+        \partSStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partSChords 
-            \new Staff { 
-                << \global \partSMusic >>
-                }
-            >>
+            \partSStaff
             }
         }
     }
 
 partT = {
-    \transpose c c {
+    \tag #'concert {
+        \partTStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partTChords 
-            \new Staff { 
-                << \global \partTMusic >>
-                }
-            >>
+            \partTStaff
             }
         }
     }
 
 partU = {
-    \transpose c c {
+    \tag #'concert {
+        \partUStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partUChords 
-            \new Staff { 
-                << \global \partUMusic >>
-                }
-            >>
+            \partUStaff
             }
         }
     }
 
 partV = {
-    \transpose c c {
+    \tag #'concert {
+        \partVStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partVChords 
-            \new Staff { 
-                << \global \partVMusic >>
-                }
-            >>
+            \partVStaff
             }
         }
     }
 
 partW = {
-    \transpose c c {
+    \tag #'concert {
+        \partWStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partWChords 
-            \new Staff { 
-                << \global \partWMusic >>
-                }
-            >>
+            \partWStaff
             }
         }
     }
 
 partX = {
-    \transpose c c {
+    \tag #'concert {
+        \partXStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partXChords 
-            \new Staff { 
-                << \global \partXMusic >>
-                }
-            >>
+            \partXStaff
             }
         }
     }
 
 partY = {
-    \transpose c c {
+    \tag #'concert {
+        \partYStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partYChords 
-            \new Staff { 
-                << \global \partYMusic >>
-                }
-            >>
+            \partYStaff
             }
         }
     }
 
 partZ = {
-    \transpose c c {
+    \tag #'concert {
+        \partZStaff
+        }
+    \tag #'transposed {
         \transpose c c {
-            <<
-            \partZChords 
-            \new Staff { 
-                << \global \partZMusic >>
-                }
-            >>
+            \partZStaff
             }
         }
     }
@@ -374,54 +560,52 @@ partZ = {
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 scoreStaves = {
-    \transpose c c {
-        <<
-        \new StaffGroup 
-            << 
-            \new GrandStaff
-                <<
-                \partA
-                \partB
-                >>
-            \new GrandStaff
-                <<
-                \partC
-                \partD
-                >>
-            \partE
-            \partF
-            \partG
-            \partH
-            >>
-        \new StaffGroup
+    <<
+    \new StaffGroup 
+        << 
+        \new GrandStaff
             <<
-            \partI
-            \partJ
-            \partK
-            \partL
-            \partO
-            \partP
+            \partA
+            \partB
             >>
-        \globalChords
-        \partQ
-        \partR
-        \partS
-        \partT
-        \new StaffGroup
+        \new GrandStaff
             <<
-            \partU
-            \partV
+            \partC
+            \partD
             >>
-        \new StaffGroup
-            <<
-            \new GrandStaff
-                <<
-                \partW
-                \partX
-                >>
-            \partY
-            \partZ
-            >>
+        \partE
+        \partF
+        \partG
+        \partH
         >>
-        }
+    \new StaffGroup
+        <<
+        \partI
+        \partJ
+        \partK
+        \partL
+        \partO
+        \partP
+        >>
+    \globalChords
+    \removeWithTag #'partChords \partQ
+    \removeWithTag #'partChords \partR
+    \partS
+    \partT
+    \new StaffGroup
+        <<
+        \partU
+        \partV
+        >>
+    \new StaffGroup
+        <<
+        \new GrandStaff
+            <<
+            \partW
+            \partX
+            >>
+        \partY
+        \partZ
+        >>
+    >>
     }
