@@ -29,6 +29,10 @@ globalTranspose =
             \transpose c c { #music }
         #})
 
+% Remove music tagged with `#'transposed` to create a score with all parts in
+% concert pitch (still subject to the `globalTranspose` setting above), or
+% remove music tagged `#'concert` to create a score with transposed parts.
+
 scoreStyle =
     #(define-music-function
         (parser location music)
