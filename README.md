@@ -32,26 +32,112 @@ Lilypond 2.16.2
       music and "template" for upstream changes, or "master" for upstream
       changes and "draft" for music.
 
-2. The `music.ily` is where all your project-specific information goes.
-    * piece info in the /header section
-    * key/tempo/time in the defaults section
-    * staff instrument names
-    * chord changes
-    * musical fragments
+2. Inside `info.ily` lies empty variables where all the copyright, maintainer,
+   composer, and piece information should go as simple strings.
+
+3. The `header.ily` file is where the variables in `info.ily` can be modified
+   with additional markup for final formatting. 
+    * The reason for the info/header file split was for the `\tagline` variable.
+        The [lyInclude][lyInclude] repository is a library for various functions
+        and utilities, and one of those functions is boilerplate copyright footers.
+        The tagline copyright text uses header info, and the header must designate
+        a tagline. So this split was a fix to that recursion problem that was
+        introduced.
+
+4. Global music formatting parameters go in `global.ily`.
+    * These parameters include:
+        * song defaults (key, tempo, time signature)
+        * barlines
+        * repeats 
+        * rehearsal marks
+        * space
+    * All sections of music should be organized into variables containing space,
+      which then get used to form the the glue which holds the other formatting
+      parameters together.
+        * suggested naming scheme is `sectionASpace`, `sectionAEndingSpace`,
+          `sectionAEndingAltSpace`. The "Space" suffix will prove vital later;
+          it's use is strongly suggested.
+        * These variables only container spacers, ex. `s1*8`.
+        * The same section space variables will be used later in specific parts
+          as place holders while constructing the piece as well as to take up
+          space before/after a section containing chord changes. (section "A"
+          has space where chords aren't needed, but section "B" has the solo
+          section where the chords are needed).
+    * In addition to the individual parts all acquiring the same global
+      parameters and space variables, the score will also appear with empty
+      space for parts that don't have music filled in yet. Having individual
+      parts line up visually, even when empty is immensely helpful when you
+      start to get many instruments. Processes' like these allow one to not even
+      need bar checking.
+
+5. The `chords.ily` is where all chord changes go.
+    * all chords are broken into the same sections as the spacer variables set
+      in `global.ily`. This allows for easy swapping of space for chords etc.
+        * as such, they should have a similar naming scheme: `sectionAChords`,
+          `sectionAEndingChords`, `sectionAEndingAltChords` etc.
+    * all chords must be tagged. In pieces where solo sections, or any other
+      need for chords are not continuous throughout the piece, then one uses
+      combinations of `\keepWithTag`, `\removeWithTag`, and `\appendToTag` to
+      construct a timeline of chord activity and space. This can only be done
+      however when one can manipulate the chords via a tag; hence the
+      requirement.
+
+6. It is a great practice to put any piece of music that repeats, or that is
+   otherwise reused or recombined into fragments in the `fragments.ily` file.
+    * Use a naming scheme that fits your preference, but I found it too tedious
+      to come up with descriptive names, so I just use a counting 5 digit, base
+      26 system and put descriptions in the comments.
+    * Combine with tag within the fragments for easier slicing and combining of
+      reused music segments.
+
+7. The `layout.ily` file is where you put together the clefs and chord changes
+   into staves and set instrument specific transposition.
+    * First, comment/delete the parts you don't need in the Part and Staff
+      layout sections.
+    * The "Staff Layout" section is where you set the staff type, and combine
+      `\global`, the music, and the chords together. Notice the "partChords"
+      tag. This allows one to omit the staff specific chords from the final
+      score if one so chooses. I found this helpful with rhythm section parts,
+      who almost all need the chords in their individual parts, but seemed
+      redundant to me to all have it in thier staves in the combined score.
+    * The Staves you create are combined in the "Parts" section. Here you can
+      set instrument specific transposition. We use tags to be able to
+      dynamically choose concert pitches (for midi output, or a score entirely
+      in concert pitch if one so chooses) or transposed pitches for playing.
+    * Finally, the "Score Layout" section is where you combine parts for the
+      score.
+
+8. The `music.ily` is where all your actual music should go, minus the
+   fragments definitions.
+    * instrument staff names
+    * instrument chord changes
     * all other music in the prescribed sections that match your `layout.ily`
       file. Feel free to include instrument names in comments to help navigate,
       but I recommend against changing the variable names so that the plug-in
-      nature of the templates remaines preserved.
+      nature of the templates remaines preserved. Usually, searching the file
+      for an instrument name is enough.
 
-2. The `layout.ily` file is where you put together the clefs and chord changes
-   into staves.
-    * Comment/delete the parts you don't need in the "part layouts" section.
-    * Layout your score in the "score layout" section with the parts you kept.
+9. The `settings.ily` is a bit of an experiment. Lilypond gets complicated when
+   you try to manipulate the language itself, and I wanted ways to pass
+   variables as arguments to functions, which I couldn't figure out. So my
+   solution was to use wrapper functions for two items:
+    * `globalTranspose` for transposing the final product into a desired key all
+      at once so one doesn't have to manipulate every single staff. One setting
+      changes the visual output of the score and all the parts.
+        * manually edit the line containing `\transpose c c` from the original
+          to the desired key to set.
+    * `scoreStyle` displays the score as either fully transposed or in concert
+      pitches (but is still subject to `globalTranspose`)
+        * manually edit the line containing `\removeWithTag` and either input
+          `#'transposed` to remove the transposed music, thereby selecting
+          concert pitch for the score or `#'concert` to remove the concert pitch
+          music and create a transposed score.
 
-3. At this point, you need either the [singlepart][singlepartrepo] or the
+10. At this point, you need either the [singlepart][singlepartrepo] or the
    [multipart][multipartrepo] layouts for actually building the pdf documents.
    Head to one of those repositories for further instruction.
 
+[lyInclude]: https://github.com/brianclements/lyInclude
 ## Contribution
 Suggestions and contributions are always welcome and appreciated.
 
@@ -67,11 +153,13 @@ lyTemplates-music is licensed under the GPL3 license.
 
 ### Version 1.0.0
 
-2015.10.04
+2015.10.26
 
 * Complete re-working of layout and file structure.
     * Separate staff layout into it's own section and put it in it's own
       repository along with the music.
+    * Blow out sections into individual files: chords, fragments, global,
+      header, info, layout, music, settings.
     * Music/layout are separate repository to which single/multipart layouts can
       plug into using git submodules.
 * Uses GPL3 license
