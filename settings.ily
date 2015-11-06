@@ -18,16 +18,12 @@
 %%%%%                               Settings                              %%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Set the global transposition here. This will transpose the score as well as
-% all the individual parts.
+% Set the global transposition here. This will transpose the score, individual
+% parts, and midi output. 'inputKey' is usually the concert key, or the key that
+% you enter the music in. 'finalKey' is the key to transpose into.
 
-globalTranspose =
-    #(define-music-function
-        (parser location music)
-        (ly:music?)
-        #{ 
-            \transpose c c { #music }
-        #})
+inputKey = c
+finalKey = c
 
 % Remove music tagged with `#'transposed` to create a score with all parts in
 % concert pitch (still subject to the `globalTranspose` setting above), or
