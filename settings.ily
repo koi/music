@@ -25,14 +25,8 @@
 inputKey = c
 finalKey = c
 
-% Remove music tagged with `#'transposed` to create a score with all parts in
-% concert pitch (still subject to the `globalTranspose` setting above), or
-% remove music tagged `#'concert` to create a score with transposed parts.
+% Sets the style of the transposition in the score. Set as 'concert' to have all
+% parts in concert pitch or 'transposed' to have all parts in their appropriate
+% transposed key as set in the `layout.ily` file.
 
-scoreStyle =
-    #(define-music-function
-        (parser location music)
-        (ly:music?)
-        #{ 
-            \removeWithTag #'transposed { #music }
-        #})
+scoreStyle = "concert"
